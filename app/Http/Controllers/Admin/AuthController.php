@@ -76,6 +76,14 @@ class AuthController extends Controller
         return redirect()->route('login')->withErrors(['Invalid login credentials']);
     }
 
+
+    public function signOut() {
+
+        Session::flush();
+       Auth::logout();
+        return Redirect('admin/');
+    }
+
     /**
      * Store a newly created resource in storage.
      *
