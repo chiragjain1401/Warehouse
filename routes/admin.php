@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Admin\Customer\CustomerController;
 /*
 |--------------------------------------------------------------------------
@@ -13,7 +14,11 @@ use App\Http\Controllers\Admin\Customer\CustomerController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+// Route::middleware('auth:admin')->group( function(){
+Route::get('admin/dashboard', [DashboardController::class,'index'])->name('admin.dashboard');
 
-Route::get('dashboard', [DashboardController::class,'index'])->name('admin.dashboard');
+Route::get('/',[AuthController::class,'index'])->name('login');
+Route::post('admin/login',[AuthController::class,'authenticate'])->name('admin.login');
 Route::resource('/customer',CustomerController::class)->names('admin.customer');
+// });
 
