@@ -16,9 +16,10 @@ use App\Http\Controllers\Admin\Customer\CustomerController;
 */
 // Route::middleware('auth:admin')->group( function(){
 Route::get('admin/dashboard', [DashboardController::class,'index'])->name('admin.dashboard');
-
+// });
 Route::get('/',[AuthController::class,'index'])->name('login');
+Route::get('logout', [AuthController::class, 'signOut'])->name('signout');
 Route::post('admin/login',[AuthController::class,'authenticate'])->name('admin.login');
 Route::resource('/customer',CustomerController::class)->names('admin.customer');
-// });
+
 
