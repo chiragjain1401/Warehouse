@@ -23,12 +23,9 @@ Route::get('logout', [AuthController::class, 'signOut'])->name('signout');
 Route::post('admin/login',[AuthController::class,'authenticate'])->name('admin.login');
 Route::resource('/customer',CustomerController::class)->names('admin.customer');
 
-<<<<<<< HEAD
 //Add Warehouse
 Route::get('warehouse',[WarehouseController::class,'index'])->name('admin.warehouse.index');
 Route::get('warehouse/create',[WarehouseController::class,'create'])->name('admin.warehouse.create');
 Route::post('warehouse/store',[WarehouseController::class,'store'])->name('admin.warehouse.store');
 // });
-=======
->>>>>>> d0c724bbb7f1bd86fef54b932ba215af7ba0dfef
 
