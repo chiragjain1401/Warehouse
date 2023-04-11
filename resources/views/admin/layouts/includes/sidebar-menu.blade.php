@@ -127,6 +127,20 @@
 					</li>
 				  </ul>--}}
 				</li>
+
+                <li class="treeview">
+                    <a href="#">
+                      <i data-feather="package"></i>
+                      <span>Warehouse</span>
+                      <span class="pull-right-container">
+                        <i class="fas fa-warehouse-right pull-right"></i>
+                      </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li><a href="{{route('admin.warehouse.index')}}"><i class="icon-Commit"><span class="path1"></span><span class="path2"></span></i>Add Warehouse</a></li>
+                    </ul>
+                </li>
+
 				<li class="treeview">
 				  <a href="#">
 					<i data-feather="users"></i>
