@@ -1,13 +1,13 @@
 @extends('admin.layouts.default')
 @section('title')
-    Admin - Warehouse Create
+    Admin - Units Create
 @endsection
 @section('content')
     <div class="content container-fluid">
         <div class="page-header">
             <div class="row">
                 <div class="col-sm-12">
-                    <h3 class="page-title">Warehouse</h3>
+                    <h3 class="page-title">Units</h3>
                 </div>
             </div>
         </div>
@@ -15,33 +15,21 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        <h4 class="card-title">Add Warehouse</h4>
+                        <h4 class="card-title">Add Units</h4>
                     </div>
                     <div class="card-body">
-                        <form class="form-valide" id="myForm" action="{{ route('admin.warehouse.store') }}" method="Post"
+                        <form class="form-valide" id="myForm" action="{{ route('admin.unit.store') }}" method="Post"
                             enctype="multipart/form-data">
                             @csrf
 
                             <div class="row">
                                 <div class="col-md-6 col-xl-6 col-xxl-6 mb-3 form-group">
-                                    <label for="name">Warehouse Name <span class="text-danger">*</span></label>
+                                    <label for="name">Units Name <span class="text-danger">*</span></label>
                                     <div class="input-group">
                                         <input type="text" name="name" id="name" class="form-control"
                                             placeholder="Enter name">
                                     </div>
                                 </div>
-
-        
-
-                                <!-- <div class="col-md-6 col-xl-6 col-xxl-6 mb-3 form-group">
-                                    <label for="location">Location<span class="text-danger">*</span></label>
-                                    <div class="input-group">
-                                        <input type="text" id="location"
-                                          
-                                            name="location" class="form-control" placeholder="Enter location">
-                                    </div>
-
-                                </div> -->
                             <div class="col-md-6 col-xl-6 col-xxl-6 mb-3 form-group">
                             <label for="location">Location</label>
                                 <div class="input-group">
@@ -90,18 +78,17 @@
                                             name="width" class="form-control" placeholder="Enter Width">
                                     </div>
 
-                                </div>
+                              </div>
                                 <div class="col-md-4 form-group">
-                                    <label for="total_unit">Total unit<span class="text-danger">*</span></label>
-                                    <div class="input-group">
-                                        <input type="text" id="total_unit"
-                                            oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
-                                            name="total_unit" class="form-control" placeholder="Enter Total Unit">
+                                    <label>Warehouse <span class="text-danger">*</span></label>
+                                    <div class="">
+                                        <select class="form-control" name="warehouse_id">
+                                            @foreach( $warehouse as $data)
+                                            <option value="{{$data->id}}">{{$data->name}}</option>
+                                         @endforeach
+                                        </select>
                                     </div>
                                 </div>
-
-    
-
                                 <div class="col-md-4">
                                     <label>Status <span class="text-danger">*</span></label>
                                     <div class="input-group">

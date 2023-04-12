@@ -1,6 +1,6 @@
 @extends('admin.layouts.default')
 @section('title')
-    Admin - Warehouse
+    Admin - Units
 @endsection
 @section('content')
     <div class="content container-fluid">
@@ -8,7 +8,7 @@
             <div class="row align-items-center">
                 <div class="col-md-12 d-flex justify-content-end">
                     <div class="doc-badge my-2 mx-2" style=" background-color: red;color: white;padding: 5px 10px; border-radius: 10px;">Warehouse <span class="ms-1"></span>{{$count}}</div>
-                    <a href="{{ route('admin.warehouse.create') }}" class="btn btn-success btn-add"><i
+                    <a href="{{ route('admin.unit.create') }}" class="btn btn-success btn-add"><i
                             class="feather-plus-square me-1"></i> Add New</a>
                 </div>
             </div>
@@ -21,8 +21,8 @@
 
           <div class="box">
             <div class="box-header with-border">
-              <h3 class="box-title">Warehouse List</h3>
-
+              <h3 class="box-title">Units List</h3>
+          
             </div>
             <!-- /.box-header -->
             <div class="box-body">
@@ -37,12 +37,12 @@
                             <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" aria-label="Start date: activate to sort column ascending" style="width: 179.328px;">Area </th>
                             <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" aria-label="Salary: activate to sort column ascending" style="width: 164.969px;">Height</th>
                             <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" aria-label="Salary: activate to sort column ascending" style="width: 164.969px;">Width</th>
-                            <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" aria-label="Salary: activate to sort column ascending" style="width: 164.969px;">Total units</th>
+                            <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" aria-label="Salary: activate to sort column ascending" style="width: 164.969px;">Warehouse</th>
                             <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" aria-label="Salary: activate to sort column ascending" style="width: 164.969px;">Action</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        @foreach($warehouse  as $data)
+                    <tbody> 
+                        @foreach($units  as $data)
                          <tr role="row" class="odd">
                          <td class="sorting_1">{{$loop->index+1}}</td>
                             <td class="sorting_1">{{$data->name}}</td>
@@ -50,7 +50,7 @@
                             <td>{{$data->area}}</td>
                             <td>{{$data->height}}</td>
                             <td>{{$data->width}}</td>
-                            <td>{{$data->total_units}}</td>
+                            <td>{{$data->warehouse_id}}</td>
                             <td><a class="text-black" href="">
                                 <i class="feather-edit-3 me-1"></i> Edit
                             </a>
@@ -61,7 +61,7 @@
                         @endforeach
 
                     </tbody>
-
+            
                 </table><div class="dataTables_info" id="example_info" role="status" aria-live="polite">Showing 1 to 10 of 57 entries</div><div class="dataTables_paginate paging_simple_numbers" id="example_paginate"><ul class="pagination"><li class="paginate_button page-item previous disabled" id="example_previous"><a href="#" aria-controls="example" data-dt-idx="0" tabindex="0" class="page-link">Previous</a></li><li class="paginate_button page-item active"><a href="#" aria-controls="example" data-dt-idx="1" tabindex="0" class="page-link">1</a></li><li class="paginate_button page-item "><a href="#" aria-controls="example" data-dt-idx="2" tabindex="0" class="page-link">2</a></li><li class="paginate_button page-item "><a href="#" aria-controls="example" data-dt-idx="3" tabindex="0" class="page-link">3</a></li><li class="paginate_button page-item "><a href="#" aria-controls="example" data-dt-idx="4" tabindex="0" class="page-link">4</a></li><li class="paginate_button page-item "><a href="#" aria-controls="example" data-dt-idx="5" tabindex="0" class="page-link">5</a></li><li class="paginate_button page-item "><a href="#" aria-controls="example" data-dt-idx="6" tabindex="0" class="page-link">6</a></li><li class="paginate_button page-item next" id="example_next"><a href="#" aria-controls="example" data-dt-idx="7" tabindex="0" class="page-link">Next</a></li></ul></div></div>
                 </div>
             </div>
@@ -128,7 +128,7 @@
                         },
                         "targets": 0,
                     },
-
+                
                     // {render: function (data, type, row, meta) {
                     //         return meta.row+1;
                     //     },
@@ -188,5 +188,5 @@
                 }
             })
         }
-    </script>
+    </script> 
 @endpush -->
