@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\AuthController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -11,3 +13,4 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+Route::get('/',[AuthController::class,'index'])->name('login');
