@@ -8,24 +8,26 @@ Admin - Create Customer
         <div class="col-lg-12 col-12">
               <div class="box">
                 <div class="box-header with-border">
-                  <h4 class="box-title">Add Customer     </h4>
+                  <h4 class="box-title">Add Customer </h4>
                 </div>
                 <!-- /.box-header -->
-                <form class="form">
+                <form class="form-valide" id="myForm" action="{{ route('admin.customer.store') }}" method="Post"
+                            enctype="multipart/form-data">
+                            @csrf
                     <div class="box-body">
                         <h4 class="box-title text-info mb-0"><i class="ti-user me-15"></i> Personal Info</h4>
                         <hr class="my-15">
                         <div class="row">
                           <div class="col-md-6">
                             <div class="form-group">
-                              <label class="form-label">Company Name.</label>
-                              <input type="text" class="form-control" placeholder="company Name">
+                              <label class="form-label">Company Name</label>
+                              <input type="text" class="form-control" placeholder="Company Name" name="company_name">
                             </div>
                           </div>
                           <div class="col-md-6">
                             <div class="form-group">
                               <label class="form-label"> GSTIN</label>
-                              <input type="text" class="form-control" placeholder="GSTIN">
+                              <input type="text" class="form-control" placeholder="GSTIN" name="gstin">
                             </div>
                           </div>
                         </div>
@@ -33,13 +35,13 @@ Admin - Create Customer
                           <div class="col-md-6">
                             <div class="form-group">
                               <label class="form-label">Contact Person Name</label>
-                              <input type="text" class="form-control" placeholder="Contact Person Name">
+                              <input type="text" class="form-control" placeholder="Contact Person Name" name="name">
                             </div>
                           </div>
                           <div class="col-md-6">
                             <div class="form-group">
                               <label class="form-label">Company Email Id</label>
-                              <input type="text" class="form-control" placeholder="Company Email Id">
+                              <input type="email" class="form-control" placeholder="Company Email Id" name="email">
                             </div>
                           </div>
                         </div>
@@ -47,30 +49,100 @@ Admin - Create Customer
                             <div class="col-md-6">
                               <div class="form-group">
                                 <label class="form-label">Plan</label>
-                                <input type="text" class="form-control" placeholder="Plan">
+                                <select class="form-select" name="plan">
+                                    <option>The Box</option>
+                                    <option>Economy Plan</option>
+                                    <option>Premium Plan</option>
+                                  </select>
                               </div>
                             </div>
-                            <div class="col-md-6">
+                            {{-- <div class="col-md-4">
+                                <label>Status <span class="text-danger">*</span></label>
+                                <div class="form-group">
+                                    <select class="form-select" name="status">
+                                        <option value="1">Enable</option>
+                                        <option value="0">Disable</option>
+                                    </select>
+                                </div>
+                            </div> --}}
+
+                            {{-- <div class="col-md-4">
                               <div class="form-group">
                                 <label class="form-label">Location</label>
-                                <input type="text" class="form-control" placeholder="location">
+                                <input type="text" class="form-control" placeholder="Location">
                               </div>
-                            </div>
+                            </div> --}}
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                  <label class="form-label">Status</label>
+                                  <select class="form-select" name="status">
+                                    <option value="1">Enable</option>
+                                    <option value="0">Disable</option>
+                                  </select>
+                                </div>
+                              </div>
                           </div>
                           <div class="row">
                             <div class="col-md-6">
                               <div class="form-group">
-                                <label class="form-label">Mobile Number</label>
-                                <input type="text" class="form-control" placeholder="Mobile No">
+                                <label class="form-label">Start Date</label>
+                                <input type="date" class="form-control" placeholder="Enter start date" name="start_date">
                               </div>
                             </div>
                             <div class="col-md-6">
                               <div class="form-group">
-                                <label class="form-label">Password</label>
-                                <input type="text" class="form-control" placeholder="Password">
+                                <label class="form-label">End date</label>
+                                <input type="date" class="form-control" placeholder="End date" name="end_date">
                               </div>
                             </div>
                           </div>
+                          <div class="row">
+                            <div class="col-md-4">
+                              <div class="form-group">
+                                <label class="form-label">Address</label>
+                                <input type="text" class="form-control" placeholder="address" name="address" name="address">
+                              </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                  <label class="form-label">State</label>
+                                  <input type="text" class="form-control" placeholder="state" name="state" name="state">
+                                </div>
+                              </div>
+                            <div class="col-md-4">
+                              <div class="form-group">
+                                <label class="form-label">City</label>
+                                <input type="text" class="form-control" placeholder="city" name="city" name="city">
+                              </div>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-md-4">
+                              <div class="form-group">
+                                <label class="form-label">Mobile Number</label>
+                                <input type="number" class="form-control" placeholder="Mobile No" name="mobile">
+                              </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                  <label class="form-label">Roles</label>
+                                  <select class="form-select" name="roles">
+                                    <option>Super Admin</option>
+                                    <option>Customer</option>
+                                    <option>Warehouse Manager</option>
+                                    <option>Account Team</option>
+                                    <option>Warehouse Employee</option>
+                                  </select>
+                                </div>
+                              </div>
+                            <div class="col-md-4">
+                              <div class="form-group">
+                                <label class="form-label">Password</label>
+                                <input type="text" class="form-control" placeholder="Password" name="password">
+                              </div>
+                            </div>
+                          </div>
+
                         {{-- <h4 class="box-title text-info mb-0 mt-20"><i class="ti-save me-15"></i> Requirements</h4> --}}
                         {{-- <hr class="my-15"> --}}
                         {{-- <div class="form-group">
@@ -116,32 +188,24 @@ Admin - Create Customer
                         </div> --}}
                     </div>
                     <!-- /.box-body -->
-                    <div class="box-footer">
-                        <button type="button" class="btn btn-warning me-1">
-                          <i class="ti-trash"></i> Cancel
-                        </button>
-                        <button type="submit" class="btn btn-primary">
-                          <i class="ti-save-alt"></i> Save
-                        </button>
-                    </div>
+
+                        <div class="box-footer">
+                            <a href="{{ route('admin.customer.index') }}" class="btn btn-danger">Cancel</a>
+                            <button type="submit" class="btn btn-success">Submit</button>
+                        </div>
+
                 </form>
               </div>
               <!-- /.box -->
-        </div>
-
-
-
-
-
-
-
-
+            </div>
     </div>
-
-
-
   </div>
-
 </section>
-
+@push('scripts')
+    <!-- script -->
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
+    <script src="{{ asset('assets/js/jquery.validate.min.js') }}"></script>
+    <script>
+        </script>
+        @endpush
 @endsection
