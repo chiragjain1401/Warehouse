@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Model;
 
-class Warehouse extends Model
+class Unit extends Model
 {
     use HasFactory, SoftDeletes;
   /**
@@ -14,7 +14,7 @@ class Warehouse extends Model
      *
      * @var string
      */
-     protected $table = 'warehouses';
+     protected $table = 'units';
      protected $primaryKey='id';
 
 

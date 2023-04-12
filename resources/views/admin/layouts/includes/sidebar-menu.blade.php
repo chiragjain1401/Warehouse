@@ -138,6 +138,7 @@
                     </a>
                     <ul class="treeview-menu">
                         <li><a href="{{route('admin.warehouse.index')}}"><i class="icon-Commit"><span class="path1"></span><span class="path2"></span></i>Add Warehouse</a></li>
+						<li><a href="{{route('admin.unit.index')}}"><i class="icon-Commit"><span class="path1"></span><span class="path2"></span></i>Add Units</a></li>
                     </ul>
                 </li>
 

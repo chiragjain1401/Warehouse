@@ -1,6 +1,6 @@
 @extends('admin.layouts.default')
 @section('title')
-    Admin - Warehouse
+    Admin - Units
 @endsection
 @section('content')
     <div class="content container-fluid">
@@ -8,7 +8,7 @@
             <div class="row align-items-center">
                 <div class="col-md-12 d-flex justify-content-end">
                     <div class="doc-badge my-2 mx-2" style=" background-color: red;color: white;padding: 5px 10px; border-radius: 10px;">Warehouse <span class="ms-1"></span>{{$count}}</div>
-                    <a href="{{ route('admin.warehouse.create') }}" class="btn btn-success btn-add"><i
+                    <a href="{{ route('admin.unit.create') }}" class="btn btn-success btn-add"><i
                             class="feather-plus-square me-1"></i> Add New</a>
                 </div>
             </div>
@@ -21,7 +21,7 @@
 
           <div class="box">
             <div class="box-header with-border">
-              <h3 class="box-title">Warehouse List</h3>
+              <h3 class="box-title">Units List</h3>
           
             </div>
             <!-- /.box-header -->
@@ -37,12 +37,12 @@
                             <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" aria-label="Start date: activate to sort column ascending" style="width: 179.328px;">Area </th>
                             <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" aria-label="Salary: activate to sort column ascending" style="width: 164.969px;">Height</th>
                             <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" aria-label="Salary: activate to sort column ascending" style="width: 164.969px;">Width</th>
-                            <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" aria-label="Salary: activate to sort column ascending" style="width: 164.969px;">Total units</th>
+                            <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" aria-label="Salary: activate to sort column ascending" style="width: 164.969px;">Warehouse</th>
                             <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" aria-label="Salary: activate to sort column ascending" style="width: 164.969px;">Action</th>
                         </tr>
                     </thead>
                     <tbody> 
-                        @foreach($warehouse  as $data)
+                        @foreach($units  as $data)
                          <tr role="row" class="odd">
                          <td class="sorting_1">{{$loop->index+1}}</td>
                             <td class="sorting_1">{{$data->name}}</td>
@@ -50,7 +50,7 @@
                             <td>{{$data->area}}</td>
                             <td>{{$data->height}}</td>
                             <td>{{$data->width}}</td>
-                            <td>{{$data->total_units}}</td>
+                            <td>{{$data->warehouse_id}}</td>
                             <td><a class="text-black" href="">
                                 <i class="feather-edit-3 me-1"></i> Edit
                             </a>

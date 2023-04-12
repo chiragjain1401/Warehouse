@@ -5,10 +5,11 @@ namespace App\Http\Controllers\Admin\Warehouse;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Admin;
+use App\Models\Unit;
 use App\Models\Warehouse;
 
 
-class WarehouseController extends Controller
+class UnitController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -36,17 +37,17 @@ class WarehouseController extends Controller
 
 
         // }
-        $warehouse=Warehouse::all();
-        $count= Warehouse::count();
-        return view ('admin.warehouse.index',compact('count','warehouse'));
+        $units=Unit::all();
+        $count= Unit::count();
+        return view ('admin.unit.index',compact('count','units'));
 
     }
 
 
-    public function create(Request $request)
-    {
-    return view('admin.warehouse.create');
-    }
+    // public function create(Request $request)
+    // {
+    // return view('admin.warehouse.create');
+    // }
     /**
      * Store a newly created resource in storage.
      *
@@ -55,19 +56,20 @@ class WarehouseController extends Controller
      */
     public function store(Request $request)
     {
-        $warehouse=new Warehouse();
-        $warehouse->name=$request->name;
-        $warehouse->location=$request->location;
-        $warehouse->area=$request->area;
-        $warehouse->height=$request->height;
-        $warehouse->width=$request->width;
-        $warehouse->total_units=$request->total_unit;
-        $warehouse->status=$request->status;
-        $warehouse->save();
-        if (!$warehouse) {
-            return redirect()->route('admin.warehouse.index');
+        $units=new Unit();
+        $units->name=$request->name;
+        $units->location=$request->location;
+        $units->area=$request->area;
+        $units->height=$request->height;
+        $units->width=$request->width;
+        $units->warehouse_id=$request->warehouse_id;
+        $units->status=$request->status;
+        $units->save();
+    
+        if (!$units) {
+            return redirect()->route('admin.unit.index');
         }
-        return redirect()->route('admin.warehouse.index')->with('success','Saved Successfully');
+        return redirect()->route('admin.unit.index')->with('success','Saved Successfully');
     }
 
 
@@ -79,11 +81,16 @@ class WarehouseController extends Controller
      */
     public function edit($id)
     {
-        $food = Food::find($id);
+        $unit = Unit::find($id);
 
-        return view('admin.food.edit',compact('food'));
+        return view('admin.unit.edit',compact('unit'));
     }
 
+     public function create(){
+    $warehouse =Warehouse::all();
+
+    return view('admin.unit.create',compact('warehouse'));
+   }
     /**
      * Update the specified resource in storage.
      *
@@ -93,20 +100,20 @@ class WarehouseController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $food =Food::find($id);
-        $food->name=$request->name;
-        $food->quantity=$request->quantity??'0.0';
-        $food->fat=$request->fat??'0.0';
-        $food->carbs=$request->carbs??'0.0';
-        $food->protein=$request->protein??'0.0';
-        $food->calories=$request->calories;
-        $food->status=$request->status;
-        $food->save();
-        if (!$food) {
+        $units =Unit::find($id);
+        $units->name=$request->name;
+        $units->location=$request->location;
+        $units->area=$request->area;
+        $units->height=$request->height;
+        $units->width=$request->width;
+        $units->warehouse_id=$request->warehouse_id;
+        $units->status=$request->status;
+        $units->save();
+        if (!$units) {
             return redirect()->back()->with('Something Went Wrong');
         }
 
-        return redirect()->route('admin.food.index')->with('success','Updated Successfully');
+        return redirect()->route('admin.unit.index')->with('success','Updated Successfully');
 
     }
 

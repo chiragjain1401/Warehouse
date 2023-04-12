@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Admin\Customer\CustomerController;
 use App\Http\Controllers\Admin\Warehouse\WarehouseController;
+use App\Http\Controllers\Admin\Warehouse\UnitController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -27,5 +28,10 @@ Route::resource('/customer',CustomerController::class)->names('admin.customer');
 Route::get('warehouse',[WarehouseController::class,'index'])->name('admin.warehouse.index');
 Route::get('warehouse/create',[WarehouseController::class,'create'])->name('admin.warehouse.create');
 Route::post('warehouse/store',[WarehouseController::class,'store'])->name('admin.warehouse.store');
+Route::post('warehouse/delete',[WarehouseController::class,'store'])->name('admin.warehouse.destroy');
+
+
+
+Route::resource('/unit',UnitController::class)->names('admin.unit');
 // });
 
