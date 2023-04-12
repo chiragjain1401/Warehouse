@@ -152,7 +152,7 @@
 				  </a>
 				  <ul class="treeview-menu">
 					<li><a href="{{route('admin.customer.index')}}"><i class="icon-Commit"><span class="path1"></span><span class="path2"></span></i>Customer</a></li>
-					 {{-- <li><a href="{{route('admin.customer.create')}}"><i class="icon-Commit"><span class="path1"></span><span class="path2"></span></i>Add Customer</a></li> --}}
+					 <li><a href="{{route('admin.customer.create')}}"><i class="icon-Commit"><span class="path1"></span><span class="path2"></span></i>Add Customer</a></li>
 					{{--<li><a href="forms_wizard.html"><i class="icon-Commit"><span class="path1"></span><span class="path2"></span></i>Form Wizard</a></li>
 					<li><a href="forms_validation.html"><i class="icon-Commit"><span class="path1"></span><span class="path2"></span></i>Form Validation</a></li>
 					<li><a href="forms_mask.html"><i class="icon-Commit"><span class="path1"></span><span class="path2"></span></i>Formatter</a></li>
