@@ -7,7 +7,7 @@
         <div class="page-header">
             <div class="row align-items-center">
                 <div class="col-md-12 d-flex justify-content-end">
-                    <div class="doc-badge me-3">Warehouse <span class="ms-1"></span></div>
+                    <div class="doc-badge me-3">Warehouse<span class="ms-1"></span></div>
                     {{--   <a href="{{route('admin.package.create')}}" data-bs-toggle="modal" data-bs-target="#addModal"
                     class="btn btn-succes btn-add"><i class="feather-plus-square me-1"></i> Add New</a> --}}
                     <a href="{{ route('admin.warehouse.create') }}" class="btn btn-success btn-add"><i
